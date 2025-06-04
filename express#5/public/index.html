@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <h1>INVENTARIO</h1>
+    <form action="/product" method="post">
+        <span>Code</span>
+        <input type="text" name="code" id="code"> <br>
+        <span>Name</span>
+        <input type="text" name="name" id="name"> <br> 
+        <span>Number</span>
+        <input type="number" name="price" id="price"> <br>
+        <input type="hidden" name="active" id="active" value="true">
+        <input type="submit" value="Guardar">
+    </form>
+    <!-- Tabla de productos -->
+     <table border="1" style="width: 800px;">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody id="tableContent">
+        </tbody>
+     </table>
+</body>
+</html>
