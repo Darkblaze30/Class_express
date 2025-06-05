@@ -43,7 +43,7 @@ function connectionMongo(nameCollection, Schema) {
   });
 
   collectionRoute.delete("/:_id", (req, res) => {
-    Collection.updateOne(req.params)
+    Collection.deleteOne(req.params)
       .then((docs) => {
         res.send(docs);
       })
