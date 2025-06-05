@@ -10,11 +10,20 @@ function loadData(){
                     <td>${doc.code}</td>
                     <td>${doc.name}</td>
                     <td>${doc.price}</td>
+                    <td>
+                        <input type ="button" value="eliminar" onClick="eliminarProducto('${doc._id}')"/>                    
+                    </td>
                 </tr>`
             });
             tableContent.innerHTML = content
         })
-    }).catch((error) =>{})
+    }).catch((error) =>{
+        
+    })
+}
+
+function eliminarProducto(_id){
+    console.log(_id);
 }
 
 loadData()

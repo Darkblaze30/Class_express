@@ -5,31 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventario</title>
     <script src="main.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 </head>
 <body>
+    <div class="container text-center">
     <h1>INVENTARIO</h1>
     <form action="/product" method="post">
-        <span>Code</span>
-        <input type="text" name="code" id="code"> <br>
-        <span>Name</span>
-        <input type="text" name="name" id="name"> <br> 
-        <span>Number</span>
-        <input type="number" name="price" id="price"> <br>
-        <input type="hidden" name="active" id="active" value="true">
+        <div class="row">
+            <div class="col m-2">
+                <span>Code</span>
+                <input type="text" name="code" id="code"> <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span>Name</span>
+                <input type="text" name="name" id="name"> <br> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span>Number</span>
+                <input type="number" name="price" id="price"> <br>
+            </div>
+        </div>
+        <div class="row">
+            <input type="hidden" name="active" id="active" value="true">
+        </div>
         <input type="submit" value="Guardar">
     </form>
     <!-- Tabla de productos -->
-     <table border="1" style="width: 800px;">
-        <thead>
-            <tr>
-                <th>Codigo</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>#</th>
-            </tr>
-        </thead>
-        <tbody id="tableContent">
-        </tbody>
-     </table>
+    <div class="row">
+        <table border="1" style="width: 800px;">
+           <thead>
+               <tr>
+                   <th>Codigo</th>
+                   <th>Nombre</th>
+                   <th>Precio</th>
+                   <th>#</th>
+               </tr>
+           </thead>
+           <tbody id="tableContent">
+           </tbody>
+        </table>
+    </div>
+    </div> 
 </body>
 </html>
