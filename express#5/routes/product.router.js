@@ -54,15 +54,15 @@ productRouter.get("/", (req, res) => {
 //     });
 // });
 
-// productRouter.delete("/:_id", (req, res) => {
-//   Product.updateOne(req.params)
-//     .then((docs) => {
-//       res.send(docs);
-//     })
-//     .catch((error) => {
-//       res.send('error:' + error);
-//     });
-// });
+productRouter.delete("/:_id", (req, res) => {
+  Product.deleteOne(req.params)
+    .then((docs) => {
+      res.send(docs);
+    })
+    .catch((error) => {
+      res.send('error:' + error);
+    });
+});
 
 
 export default productRouter

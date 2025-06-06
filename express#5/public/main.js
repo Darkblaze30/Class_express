@@ -1,3 +1,23 @@
+const formulario = document.getElementById('formulario')
+
+formulario.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const form = new FormData(event.target)
+    fetch('/product', {
+        method: 'post',
+        body:form
+    }).then(res => {
+        console.log(res);
+        message('success','Producto agregado con exito')
+        loadData()
+    })
+    .catch(err => {
+        message('error','Error al intentar agregar el producto')
+        console.log(err);
+    })
+    console.log(...form.entries());
+})
+
 function loadData(){
     fetch('/product').then((data) => {
         data.json().then((docs) => {
@@ -18,12 +38,30 @@ function loadData(){
             tableContent.innerHTML = content
         })
     }).catch((error) =>{
-        
+
     })
 }
 
+
+
 function eliminarProducto(_id){
-    console.log(_id);
+    fetch(`/product/${_id}`, {method: 'delete'}).then(res =>{
+        console.log(res);
+        message('success', 'Producto eliminado correctamente')
+        loadData();
+    })
+    .catch(err => {
+        console.log(err);     
+        message('error', 'Producto no eliminado ')
+    })
+}
+
+function message(type, msg){
+    const message = document.getElementById('message')
+    message.style = 'display: block;';
+    message.classList.remove(type == 'success' ? 'error': 'success')
+    message.classList.add('success');
+    message.innerHTML = msg;
 }
 
 loadData()
